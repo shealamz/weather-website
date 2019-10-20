@@ -9,7 +9,8 @@ const forecast = (latitude, longitude,  callback) => {
         }else if(body.code){
             callback('Kordinat salah', undefined)
         }else{
-            callback(undefined, body.daily.data[0].summary+" Perkiraan suhu saat ini "+ body.currently.temperature + " derajat. Berapa persen kemungkinan akan turun hujan: " + body.currently.precipProbability + "% hujan" 
+            console.log(body.daily.data[0])
+            callback(undefined, body.daily.data[0].summary+" Perkiraan suhu saat ini "+ body.currently.temperature + " derajat. (Tempratur High: " +body.daily.data[0].temperatureHigh+ " Min: " +body.daily.data[0].temperatureLow + ") Berapa persen kemungkinan akan turun hujan: " + body.currently.precipProbability + "% hujan" 
             )
         }
     })
